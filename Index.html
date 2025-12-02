@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supernatural Frontier Horror — Final Project</title>
+<style>
+/* ----------------- RESET ----------------- */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Georgia', serif; }
+body { background: #1c1c1c; color: #f5f5f5; line-height:1.6; }
+a { text-decoration:none; color:#e07b7b; }
+h1,h2,h3,h4 { color:#f5f5f5; }
+p { margin-bottom:1em; }
+
+/* ----------------- CONTAINERS ----------------- */
+.fc-site { padding:20px; max-width:1200px; margin:auto; }
+.fc-inner { display:flex; flex-direction:column; gap:20px; }
+
+/* ----------------- HEADER ----------------- */
+.fc-header { background:#3e2f1c; padding:20px; border-bottom:4px solid #7a1f1f; border-radius:6px; box-shadow:0 0 15px #000; }
+.fc-title { font-family:'Georgia', serif; font-size:2em; color:#f5e6c0; margin-bottom:5px; }
+.fc-sub { font-size:1em; color:#d9b08c; }
+
+/* ----------------- LAYOUT ----------------- */
+.fc-layout { display:flex; flex-direction:row; gap:20px; }
+.fc-nav { flex:1; background:#2b1e12; padding:15px; border-radius:6px; }
+.fc-nav ul { list-style:none; }
+.fc-nav li { margin:10px 0; }
+.fc-nav li a:hover { color:#f56f6f; }
+.fc-main { flex:3; background:#262626; padding:15px; border-radius:6px; }
+
+/* ----------------- TABS ----------------- */
+.tabs { margin-bottom:20px; }
+.tabs input[type=radio] { display:none; }
+.tab-labels { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:10px; }
+.tab-labels label { background:#3e2f1c; padding:8px 12px; border-radius:4px; cursor:pointer; transition:0.3s; color:#f5e6c0; }
+.tab-labels label:hover { background:#7a1f1f; }
+.tabs .tabset { border-top:2px solid #7a1f1f; padding-top:10px; }
+.tab { display:none; }
+#tab-overview:checked ~ .tabset #panel-overview,
+#tab-theory:checked ~ .tabset #panel-theory,
+#tab-films:checked ~ .tabset #panel-films,
+#tab-comparison:checked ~ .tabset #panel-comparison { display:block; }
+
+/* ----------------- COLLAPSIBLE FILM SECTIONS ----------------- */
+.film-toggle { margin:15px 0; }
+.film-toggle input[type=checkbox] { display:none; }
+.film-toggle label { display:flex; justify-content:space-between; padding:8px 12px; background:#3e2f1c; border-radius:4px; cursor:pointer; color:#f5e6c0; transition:0.3s; }
+.film-toggle label:hover { background:#7a1f1f; }
+.film-toggle .chev { transition:0.3s; }
+.film-toggle input:checked + label .chev { transform:rotate(90deg); }
+.film-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; padding:0 12px; }
+.film-toggle input:checked ~ .film-content { max-height:500px; padding:10px 12px; background:#1f1f1f; border-left:3px solid #7a1f1f; border-radius:0 4px 4px 0; }
+
+/* ----------------- HOVER REVEAL ----------------- */
+.hover-reveal { position:relative; cursor:pointer; display:inline-block; border-bottom:1px dotted #f56f6f; }
+.hover-reveal::after { content: attr(data-reveal); position:absolute; left:0; bottom:100%; background:#7a1f1f; color:#f5e6c0; padding:5px 8px; border-radius:4px; opacity:0; transition:0.3s; pointer-events:none; white-space:nowrap; font-size:0.9em; }
+.hover-reveal:hover::after { opacity:1; bottom:120%; }
+
+/* ----------------- SMALL TOUCHES ----------------- */
+.lede { font-style:italic; color:#d9b08c; }
+.section { margin:20px 0; }
+</style>
+</head>
+<body>
+<div class="fc-site">
+  <div class="fc-inner">
+
+    <!-- Header -->
+    <header class="fc-header">
+      <h1 class="fc-title">Supernatural Frontier Horror — Final Project</h1>
+      <div class="fc-sub">Analysis of the hybrid genre: High Plains Drifter • The Wind • Sinners</div>
+    </header>
+
+    <!-- Layout -->
+    <div class="fc-layout">
+
+      <!-- Navigation -->
+      <nav class="fc-nav">
+        <h3>Index</h3>
+        <ul>
+          <li><a href="#overview">Overview & Thesis</a></li>
+          <li><a href="#theory">Thematic Lens</a></li>
+          <li><a href="#films">The Three Films</a></li>
+          <li><a href="#comparison">Comparative Section</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="fc-main">
+
+        <!-- Tabs -->
+        <div class="tabs section" id="overview">
+          <input type="radio" id="tab-overview" name="tabs" checked>
+          <input type="radio" id="tab-theory" name="tabs">
+          <input type="radio" id="tab-films" name="tabs">
+          <input type="radio" id="tab-comparison" name="tabs">
+
+          <div class="tab-labels">
+            <label for="tab-overview">Overview</label>
+            <label for="tab-theory">Thematic Lens</label>
+            <label for="tab-films">The Three Films</label>
+            <label for="tab-comparison">Comparison</label>
+          </div>
+
+          <div class="tabset">
+            <section id="panel-overview" class="tab">
+              <h2>Overview & Thesis</h2>
+              <p class="lede">This project focuses on the subgenre of <strong>Supernatural Frontier Horror</strong>: the Western’s frontier aesthetics fused with Gothic/Supernatural horror.</p>
+              <p>Supernatural Frontier Horror treats the land itself as a moral catalyst. Ethical ruptures, communal betrayals, and isolation catalyze forces that unmake the frontier’s myth of ordered expansion.</p>
+            </section>
+
+            <section id="panel-theory" class="tab">
+              <h2>Thematic Lens</h2>
+              <p><strong>Gothic & Western Intersection</strong> — the frontier is haunted by violence, unmarked graves, and broken covenants.</p>
+              <p class="hover-reveal" data-reveal="Macdonald: 'both confront existential crisis...'">Key quote: “the dead return because they were not properly buried.”</p>
+
+              <div style="margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <div>
+                  <h3>Characteristic 1</h3>
+                  <p><strong>Moral Transgression as Catalyst</strong> — entities emerge as judgement for betrayal, murder, or communal sin.</p>
+                </div>
+                <div>
+                  <h3>Characteristic 2</h3>
+                  <p><strong>Isolation as Psychological Breakdown</strong> — isolation accelerates paranoia and destabilizes perception (see Emma Tammi).</p>
+                </div>
+              </div>
+
+              <div style="margin-top:10px;">
+                <h3>Characteristic 3</h3>
+                <p><strong>Landscape as Supernatural Force</strong> — wind, plains, and abandoned structures become active agents of terror.</p>
+              </div>
+            </section>
+
+            <section id="panel-films" class="tab">
+              <h2>The Three Films</h2>
+
+              <!-- High Plains Drifter -->
+              <div class="film-toggle">
+                <input type="checkbox" id="hp-toggle">
+                <label for="hp-toggle">
+                  <span>High Plains Drifter (1973)</span>
+                  <span class="chev">▶</span>
+                </label>
+                <div class="film-content">
+                  <p>Eastwood's Stranger arrives and the town of Lago collapses into guilt and retributive justice.</p>
+                  <p><strong>Cinematography:</strong> heat shimmer, harsh light; <strong>Color:</strong> Lago painted blood-red; <strong>Sound:</strong> sparse gunshots and wind.</p>
+                </div>
+              </div>
+
+              <!-- The Wind -->
+              <div class="film-toggle">
+                <input type="checkbox" id="wind-toggle">
+                <label for="wind-toggle">
+                  <span>The Wind (2018)</span>
+                  <span class="chev">▶</span>
+                </label>
+                <div class="film-content">
+                  <p>Emma Tammi's film roots horror in isolation. Lizzy’s solitude collapses the boundary between psychological anguish and supernatural presence.</p>
+                  <p><strong>Sound:</strong> layered wind; <strong>Cinematography:</strong> wide shots trap Lizzy; interiors claustrophobic; <strong>Themes:</strong> gender pressure, superstition, domestic confinement.</p>
+                </div>
+              </div>
+
+              <!-- Sinners -->
+              <div class="film-toggle">
+                <input type="checkbox" id="sinners-toggle">
+                <label for="sinners-toggle">
+                  <span>Sinners (2025)</span>
+                  <span class="chev">▶</span>
+                </label>
+                <div class="film-content">
+                  <p>Coogler's Sinners stages moral temptation. Vampiric Remmick externalizes desire and generational trauma.</p>
+                  <p><strong>Aesthetics:</strong> smoky interiors vs. vampiric intrusion; <strong>Music:</strong> blues as battleground; <strong>Editing:</strong> tonal shifts destabilize viewers.</p>
+                </div>
+              </div>
+
+            </section>
+
+            <section id="panel-comparison" class="tab">
+              <h2>Comparative Section</h2>
+              <p><strong>Shared Conventions:</strong> supernatural emerges from wrongdoing; isolation magnifies vulnerability; frontier as moral test; communities collapse; revenge replaces Western heroism.</p>
+
+              <p><strong>Why It Resonates:</strong> institutional distrust, climate anxiety, genre hybridity fuel revival. Tammi links historical isolation to contemporary isolation; Eastwood reflects post-Vietnam institutional collapse.</p>
+
+              <p><strong>Audiences:</strong> prestige horror fans, revisionist Western audiences, historical trauma enthusiasts; Platforms: streaming, repertory, online cinephile communities.</p>
+            </section>
+
+          </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="section" id="conclusion">
+          <h2>Conclusion</h2>
+          <p class="lede">Supernatural Frontier Horror positions the frontier as an echo chamber where sins reverberate louder than gunfire. The three films analyzed show the supernatural as moral reckoning rather than random threat.</p>
+          <p>The frontier never stays empty; ghosts of moral failure persist. Hybrid aesthetics unearth buried violence and test human nature where isolation and landscape conspire to judge and torment.</p>
+        </div>
+
+      </main>
+    </div>
+  </div>
+</div>
+</body>
+</html>
